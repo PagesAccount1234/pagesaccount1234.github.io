@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Image Tiler</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+ 
+<body>
+    <nav class="green">
+        <div class="nav-wrapper container">
+            <span class="nav-header">
+              Image Tiler
+            </span>
+            <ul class="right image-save">
+                <button class="btn btn-flat blue white-text"
+                        onclick="saveImage()">
+                  Save
+                </button>
+                <button class="btn btn-flat red white-text"
+                        onclick="resetImage()">
+                  Reset
+                </button>
+            </ul>
+        </div>
+    </nav>
+ 
+    <img id="sourceImage" crossorigin="anonymous">
+ 
+    <div class="image-preview row">
+        <canvas id="canvas" height="0" class="col"></canvas>
+		<canvas id="editedCanvas" height="0" class="col"></canvas>
+    </div>
+    <div class="container app">
+        <div class="help-text center-align">
+            <h5>Please Upload an Image to Start Editing</h5>
+        </div>
+ 
+        <div class="preset-filters">
+            <h6>Image Controls</h6>
+            <button id='tileButton' class="btn green">
+              Tile
+            </button>
+        </div>
+ 
+        <!-- File control to upload a new file -->
+        <div class="file-controls">
+            <h6>File Controls</h6>
+           
+            <!-- Element that will be later used to download
+            the canvas image from code -->
+            <a id="link"></a>
+           
+            <!-- File Selector for uploading the image -->
+            <div class="file-field input-field">
+                <div class="btn green">
+                    <span>Upload Image</span>
+                    <input type="file" accept="image/*"
+                           onchange="uploadImage(event)">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="app.js"></script>
+</body>
+ 
+</html>
